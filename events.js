@@ -1,7 +1,7 @@
 // Observer pattern
 
 const EventEmitter = require("events");
-
+const http = require("http");
 const Emitter = new EventEmitter(); // Listener
 
 class Sales extends EventEmitter {
@@ -28,3 +28,28 @@ myEmitter.on("newSale", (stock) => {
 });
 
 myEmitter.emit("newSale", 9); // Emits the events
+
+////// server creation
+const server = http.createServer();
+
+// server is on and listening for events
+server.on("request", (req, res) => {
+  console.log("Requrest received!");
+  console.log(req.url);
+  return res.end("Request received!");
+});
+
+server.on("request", (req, res) => {
+  console.log("Another Requrest received!");
+  console.log(req.url);
+  return res.end("Another Request received!");
+});
+
+server.on("close", () => {
+  return console.log("server closed");
+});
+
+// start the server!
+server.listen(8000, "127.0.0.1", () => {
+  console.log("waiting for requests...");
+});
