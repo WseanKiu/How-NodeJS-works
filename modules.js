@@ -15,3 +15,10 @@ console.log(calc2.multiply(1, 4));
 const { add, multiply } = require("./test-module-2");
 console.log(add(1, 4));
 console.log(multiply(1, 4));
+
+// Caching
+require("./test-module-3")();
+require("./test-module-3")();
+require("./test-module-3")();
+// OUTPUT:
+// Hello World!!! => will only be shown once due to caching or ONLY LOADED ONCE!
