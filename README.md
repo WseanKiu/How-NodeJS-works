@@ -34,3 +34,9 @@ repeat* or end*
 
 process.nexttick*() -> (Microtask(s)) after & before the callback phase(inbetween each phase(s))
 ```
+
+WRAPPER / DEFUALT / GLOBAL VARIABLES
+
+### The Wrapper Function
+
+console.log(require("module").wrapper); // function (exports, require, module, **filename, **dirname)
